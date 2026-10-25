@@ -1,0 +1,504 @@
+/* Estilos da seção Closet. Todas as classes começam com "closet-"; usa as variáveis de global.css. */
+
+/* ---- lista ---- */
+
+.closet-lista {
+  padding-bottom: calc(var(--toque-min) + var(--espaco-6));
+}
+
+.closet-busca {
+  display: flex;
+  gap: var(--espaco-2);
+  margin-bottom: var(--espaco-3);
+}
+
+.closet-busca input {
+  flex: 1;
+  min-width: 0;
+  min-height: var(--toque-min);
+  padding: var(--espaco-2) var(--espaco-3);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background: var(--cor-superficie);
+}
+
+.closet-botao-filtros {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  min-height: var(--toque-min);
+  padding: 0 var(--espaco-4);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background: var(--cor-superficie);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.closet-botao-filtros[aria-expanded='true'] {
+  background: var(--cor-primaria-suave);
+}
+
+.closet-contador {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--cor-primaria);
+  color: var(--cor-primaria-texto);
+  font-size: 0.75rem;
+}
+
+.closet-filtros .chips:last-of-type {
+  margin-bottom: var(--espaco-3);
+}
+
+.closet-contagem {
+  margin: 0 0 var(--espaco-3);
+  font-size: var(--texto-p);
+}
+
+.closet-link {
+  border: none;
+  background: none;
+  padding: var(--espaco-2) 0;
+  color: var(--cor-primaria);
+  text-decoration: underline;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.closet-grade {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--espaco-3) var(--espaco-2);
+}
+
+@media (min-width: 560px) {
+  .closet-grade {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.closet-cartao {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+  color: inherit;
+  text-decoration: none;
+}
+
+.closet-cartao-foto {
+  position: relative;
+}
+
+.closet-cartao-nome {
+  font-size: var(--texto-p);
+  line-height: 1.25;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow-wrap: anywhere;
+}
+
+.closet-selo {
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  max-width: calc(100% - 8px);
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: var(--cor-aviso-fundo);
+  color: var(--cor-aviso);
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: var(--sombra);
+}
+
+.closet-selo-guardada {
+  background: var(--cor-superficie-2);
+  color: var(--cor-texto-suave);
+}
+
+.closet-estrela {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  color: #f2b400;
+  font-size: 1.1rem;
+  text-shadow: 0 0 3px rgb(0 0 0 / 0.6);
+}
+
+.closet-fab {
+  position: fixed;
+  z-index: 11;
+  right: max(var(--espaco-4), calc((100vw - var(--largura-max)) / 2 + var(--espaco-4)));
+  bottom: calc(var(--altura-nav) + env(safe-area-inset-bottom) + var(--espaco-4));
+  min-height: 56px;
+  border-radius: 999px;
+  padding: 0 var(--espaco-5);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.25);
+  font-size: var(--texto-m);
+}
+
+/* ---- seções recolhíveis ---- */
+
+.closet-secao {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background: var(--cor-superficie);
+  margin-bottom: var(--espaco-3);
+}
+
+.closet-secao > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  min-height: var(--toque-min);
+  padding: var(--espaco-2) var(--espaco-4);
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+}
+
+.closet-secao > summary::-webkit-details-marker {
+  display: none;
+}
+
+.closet-secao > summary::after {
+  content: '▾';
+  margin-left: auto;
+  color: var(--cor-texto-suave);
+  transition: transform 0.15s;
+}
+
+.closet-secao[open] > summary::after {
+  transform: rotate(180deg);
+}
+
+.closet-secao-titulo {
+  flex-shrink: 0;
+}
+
+.closet-secao-resumo {
+  font-weight: 400;
+  font-size: var(--texto-p);
+  color: var(--cor-texto-suave);
+}
+
+.closet-secao-corpo {
+  padding: 0 var(--espaco-4) var(--espaco-4);
+}
+
+/* ---- formulário ---- */
+
+.closet-form {
+  padding-bottom: var(--espaco-4);
+}
+
+.closet-opcional {
+  font-size: var(--texto-p);
+  margin: 0 0 var(--espaco-3);
+}
+
+.closet-erro-solto {
+  margin: calc(-1 * var(--espaco-3)) 0 var(--espaco-4);
+}
+
+.closet-fotos-pendentes {
+  list-style: none;
+  padding: 0;
+  margin: var(--espaco-3) 0 var(--espaco-2);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--espaco-2);
+}
+
+.closet-fotos-pendentes li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+.closet-fotos-pendentes select {
+  min-height: 40px;
+  width: 100%;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-pequeno);
+  background: var(--cor-superficie);
+  font-size: var(--texto-p);
+  padding: 0 var(--espaco-1);
+}
+
+.closet-sugestoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-2);
+  margin: calc(-1 * var(--espaco-2)) 0 var(--espaco-4);
+}
+
+.closet-duas-colunas {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0 var(--espaco-3);
+}
+
+.closet-ajuda {
+  display: block;
+  margin: 0 0 var(--espaco-3);
+}
+
+.closet-medida {
+  padding: var(--espaco-3);
+  box-shadow: none;
+  background: var(--cor-fundo);
+}
+
+.closet-medida-grade {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 0 var(--espaco-3);
+}
+
+.closet-medida .botao-fantasma {
+  color: var(--cor-perigo);
+  padding: 0;
+}
+
+.closet-barra-salvar {
+  position: sticky;
+  bottom: calc(var(--altura-nav) + env(safe-area-inset-bottom));
+  z-index: 5;
+  margin: var(--espaco-4) calc(-1 * var(--espaco-4)) 0;
+  padding: var(--espaco-3) var(--espaco-4);
+  background: var(--cor-fundo);
+  border-top: 1px solid var(--cor-borda);
+}
+
+/* ---- detalhe ---- */
+
+.closet-subtitulo {
+  margin: calc(-1 * var(--espaco-3)) 0 var(--espaco-3);
+  font-size: var(--texto-p);
+}
+
+.closet-botao-icone {
+  min-width: var(--toque-min);
+  min-height: var(--toque-min);
+  border: none;
+  background: transparent;
+  border-radius: var(--raio);
+  font-size: 1.5rem;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+}
+
+.closet-botao-icone[aria-pressed='true'] {
+  color: #e0a800;
+}
+
+.closet-botao-editar {
+  padding: 0 var(--espaco-4);
+}
+
+.closet-galeria {
+  margin-bottom: var(--espaco-4);
+}
+
+.closet-foto-grande-caixa {
+  position: relative;
+}
+
+.closet-foto-grande {
+  aspect-ratio: 3 / 4;
+  max-height: 62dvh;
+  object-fit: contain;
+  background: var(--cor-superficie-2);
+  border-radius: var(--raio);
+  margin: 0 auto;
+}
+
+.closet-foto-tipo {
+  position: absolute;
+  left: var(--espaco-2);
+  bottom: var(--espaco-2);
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgb(0 0 0 / 0.6);
+  color: #fff;
+  font-size: var(--texto-p);
+}
+
+.closet-tira {
+  list-style: none;
+  margin: var(--espaco-2) 0;
+  padding: 0 0 var(--espaco-1);
+  display: flex;
+  gap: var(--espaco-2);
+  overflow-x: auto;
+}
+
+.closet-tira li {
+  flex: 0 0 64px;
+}
+
+.closet-tira button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: var(--raio-pequeno);
+  background: none;
+  cursor: pointer;
+}
+
+.closet-tira button[aria-pressed='true'] {
+  border-color: var(--cor-primaria);
+}
+
+.closet-gerenciar-foto {
+  margin-top: var(--espaco-2);
+}
+
+.closet-botoes-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espaco-2);
+  margin-bottom: var(--espaco-2);
+}
+
+.closet-botoes-3 > :last-child {
+  grid-column: 1 / -1;
+}
+
+.closet-botoes-3 .botao {
+  padding: 0 var(--espaco-2);
+}
+
+.closet-texto-perigo {
+  color: var(--cor-perigo);
+  width: 100%;
+}
+
+.closet-galeria .seletor-foto {
+  margin-top: var(--espaco-3);
+}
+
+.closet-disponibilidade-atual {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  margin: 0 0 var(--espaco-3);
+  font-weight: 600;
+  font-size: var(--texto-g);
+}
+
+.closet-ponto {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--cor-aviso);
+}
+
+.closet-ponto-disponivel {
+  background: var(--cor-sucesso);
+}
+
+.closet-ponto-guardada {
+  background: var(--cor-texto-suave);
+}
+
+.closet-outras-disp {
+  margin-top: var(--espaco-3);
+}
+
+.closet-outras-disp > summary {
+  min-height: var(--toque-min);
+  display: flex;
+  align-items: center;
+  color: var(--cor-primaria);
+  cursor: pointer;
+}
+
+.closet-outras-disp .chips {
+  margin: var(--espaco-2) 0 0;
+}
+
+.closet-outras-disp .chips legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.closet-bloco dl {
+  margin: 0;
+}
+
+.closet-item {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: var(--espaco-2);
+  padding: var(--espaco-2) 0;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.closet-item:first-child {
+  border-top: none;
+}
+
+.closet-item dt {
+  color: var(--cor-texto-suave);
+  font-size: var(--texto-p);
+}
+
+.closet-item dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.closet-tabela-medidas {
+  overflow-x: auto;
+  margin-top: var(--espaco-2);
+}
+
+.closet-tabela-medidas table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--texto-p);
+}
+
+.closet-tabela-medidas th,
+.closet-tabela-medidas td {
+  text-align: left;
+  vertical-align: top;
+  padding: var(--espaco-2) var(--espaco-2) var(--espaco-2) 0;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.closet-tabela-medidas thead th {
+  color: var(--cor-texto-suave);
+  font-weight: 600;
+}
+
+.closet-medida-tipo {
+  display: block;
+  color: var(--cor-texto-suave);
+  font-size: 0.75rem;
+}
+
+.closet-datas {
+  font-size: var(--texto-p);
+}

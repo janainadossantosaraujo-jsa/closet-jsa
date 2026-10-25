@@ -1,0 +1,228 @@
+/* Estilos da seção Semana (prefixo sm-). */
+
+.sm-navegacao {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  margin-bottom: var(--espaco-4);
+}
+
+.sm-navegacao > .botao {
+  padding: 0 var(--espaco-4);
+  font-size: 1.5rem;
+}
+
+.sm-navegacao-dia {
+  justify-content: space-between;
+  margin-top: calc(-1 * var(--espaco-3));
+}
+
+.sm-navegacao-dia > .botao {
+  font-size: var(--texto-p);
+  padding: 0 var(--espaco-2);
+}
+
+.sm-navegacao-titulo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: var(--texto-p);
+}
+
+.sm-navegacao-titulo strong {
+  font-size: var(--texto-m);
+}
+
+.sm-link {
+  border: none;
+  background: transparent;
+  color: var(--cor-primaria);
+  text-decoration: underline;
+  min-height: 32px;
+  cursor: pointer;
+  font-size: var(--texto-p);
+}
+
+.sm-nota {
+  font-size: var(--texto-p);
+}
+
+.sm-info {
+  font-size: var(--texto-p);
+  color: var(--cor-texto-suave);
+  border: 1px dashed var(--cor-borda);
+  border-radius: var(--raio-pequeno);
+  padding: var(--espaco-2) var(--espaco-3);
+  margin-bottom: var(--espaco-3);
+}
+
+.sm-info p {
+  margin: 0;
+}
+
+/* ---- dias ---- */
+
+.sm-dias {
+  list-style: none;
+  margin: 0 0 var(--espaco-4);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+}
+
+.sm-dia {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+  padding: var(--espaco-3);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background: var(--cor-superficie);
+  color: inherit;
+  text-decoration: none;
+  min-height: var(--toque-min);
+}
+
+.sm-dia-hoje {
+  border: 2px solid var(--cor-primaria);
+}
+
+.sm-dia-passado {
+  opacity: 0.75;
+}
+
+.sm-dia-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+}
+
+.sm-dia-corpo {
+  display: flex;
+  gap: var(--espaco-3);
+  align-items: flex-start;
+}
+
+.sm-dia-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: var(--texto-p);
+  min-width: 0;
+  flex: 1;
+}
+
+.sm-sem-look {
+  flex: none;
+  width: 72px;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--cor-borda);
+  border-radius: var(--raio-pequeno);
+  color: var(--cor-texto-suave);
+  font-size: 0.75rem;
+}
+
+/* ---- dia ---- */
+
+.sm-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-2);
+  margin-top: var(--espaco-2);
+}
+
+.sm-botoes > .botao {
+  flex: 1 1 auto;
+  padding: 0 var(--espaco-3);
+}
+
+.sm-compromissos {
+  list-style: none;
+  margin: 0 0 var(--espaco-3);
+  padding: 0;
+}
+
+.sm-compromisso {
+  display: flex;
+  gap: var(--espaco-3);
+  width: 100%;
+  min-height: var(--toque-min);
+  align-items: center;
+  border: none;
+  border-bottom: 1px solid var(--cor-borda);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  padding: var(--espaco-2) 0;
+}
+
+.sm-compromisso-hora {
+  flex: none;
+  min-width: 88px;
+  font-variant-numeric: tabular-nums;
+  color: var(--cor-texto-suave);
+  font-size: var(--texto-p);
+}
+
+.sm-fixadas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espaco-2);
+  margin-bottom: var(--espaco-3);
+}
+
+.sm-fixadas figure {
+  margin: 0;
+}
+
+.sm-fixadas figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.8125rem;
+  overflow-wrap: anywhere;
+}
+
+.sm-horarios {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espaco-3);
+}
+
+/* ---- regras ---- */
+
+.sm-regras summary {
+  display: flex;
+  flex-direction: column;
+  min-height: var(--toque-min);
+  justify-content: center;
+  cursor: pointer;
+  list-style: none;
+}
+
+.sm-regras summary::-webkit-details-marker {
+  display: none;
+}
+
+.sm-regras summary strong::after {
+  content: ' ▾';
+  color: var(--cor-texto-suave);
+}
+
+.sm-regras[open] summary {
+  margin-bottom: var(--espaco-3);
+}
+
+.sm-regras[open] summary strong::after {
+  content: ' ▴';
+}
+
+.sm-regras summary span {
+  font-size: var(--texto-p);
+}
